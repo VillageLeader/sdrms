@@ -15,15 +15,15 @@ var cc cache.Cache
 
 func InitCache() {
 	host := beego.AppConfig.String("cache::redis_host")
-	//passWord := beego.AppConfig.String("cache::redis_password")
+	passWord := beego.AppConfig.String("cache::redis_password")
 	var err error
 	defer func() {
 		if r := recover(); r != nil {
 			cc = nil
 		}
 	}()
-	//cc, err = cache.NewCache("redis", `{"conn":"`+host+`","password":"`+passWord+`"}`)
-	cc, err = cache.NewCache("redis", `{"conn":"`+host+`"}`)
+	cc, err = cache.NewCache("redis", `{"conn":"`+host+`","password":"`+passWord+`"}`)
+	//cc, err = cache.NewCache("redis", `{"conn":"`+host+`"}`)
 	if err != nil {
 		LogError("Connect to the redis host " + host + " failed")
 		LogError(err)
