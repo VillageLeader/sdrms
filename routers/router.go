@@ -42,6 +42,18 @@ func init() {
 	beego.Router("/usercenter/uploadimage", &controllers.UserCenterController{}, "Post:UploadImage")
 	beego.Router("/usercenter/passwordsave", &controllers.UserCenterController{}, "Post:PasswordSave")
 
+    //数据上传路由
+    beego.Router("/datatransfer/index", &controllers.DataTransferController{}, "*:Index")
+	beego.Router("/datatransfer/datagrid", &controllers.DataTransferController{}, "Get,Post:DataGrid")
+	beego.Router("/datatransfer/edit/?:id", &controllers.DataTransferController{}, "Get,Post:Edit")
+	beego.Router("/datatransfer/delete", &controllers.DataTransferController{}, "Post:Delete")
+
+    //接入域名管理路由
+    beego.Router("/domainmanager/index", &controllers.DomainManagerController{}, "*:Index")
+	beego.Router("/domainmanager/datagrid", &controllers.DomainManagerController{}, "Get,Post:DataGrid")
+    beego.Router("/domainmanager/edit/?:id", &controllers.DomainManagerController{}, "Get,POST:Edit")
+	beego.Router("/domainmanager/delete", &controllers.DomainManagerController{}, "Post:Delete")
+
 	beego.Router("/home/index", &controllers.HomeController{}, "*:Index")
 	beego.Router("/home/login", &controllers.HomeController{}, "*:Login")
 	beego.Router("/home/dologin", &controllers.HomeController{}, "Post:DoLogin")

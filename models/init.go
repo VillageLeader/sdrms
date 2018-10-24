@@ -7,7 +7,8 @@ import (
 
 // init 初始化
 func init() {
-	orm.RegisterModel(new(BackendUser), new(Resource), new(Role), new(RoleResourceRel), new(RoleBackendUserRel))
+	orm.RegisterModel(new(BackendUser), new(Resource), new(Role),
+        new(RoleResourceRel), new(RoleBackendUserRel), new(DataTransfer), new(DomainManager))
 }
 
 // TableName 下面是统一的表名管理
@@ -29,6 +30,16 @@ func ResourceTBName() string {
 // RoleTBName 获取 Role 对应的表名称
 func RoleTBName() string {
 	return TableName("role")
+}
+
+// DataTransferTBName 获取 DataTransfer 对应的表名称
+func DataTransferTBName() string {
+    return TableName("transfer")
+}
+
+// DomainManagerTBName 获取 DomainManager 对应表的名称
+func DomainManagerTBName() string {
+    return TableName("domain")
 }
 
 // RoleResourceRelTBName 角色与资源多对多关系表

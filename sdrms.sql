@@ -84,6 +84,38 @@ CREATE TABLE `rms_role` (
 
 insert  into `rms_role`(`id`,`name`,`seq`) values (22,'超级管理员',20),(24,'角色管理员',10),(25,'课程资源管理员',5);
 
+/*Table structure for table `rms_transfer` */
+
+DROP TABLE IF EXISTS `rms_transfer`;
+
+CREATE TABLE `rms_transfer` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `host` varchar(255) NOT NULL DEFAULT '',
+    `addr` varchar(255) NOT NULL DEFAULT '',
+    `protocol` varchar(255) NOT NULL DEFAULT 'http',
+    `seq` int(11) NOT NULL DEFAULT '0',
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+
+/*Data for the table `rms_transfer` */
+
+insert into `rms_transfer`(`id`, `host`, `addr`, `seq`) values (1,'www.a.com','1.1.1.1:80', 1), (2,'www.b.com','2.2.2.2:8080',2),(3,'www.c.com', '3.3.3.3:8089', 4);
+
+/* Table structure for tabke `rms_domain` */
+
+DROP TABLE IF EXISTS `rms_domain`;
+
+CREATE TABLE `rms_domain` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `client` varchar(255) NOT NULL DEFAULT '',
+    `domain` varchar(255) NOT NULL DEFAULT '',
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+
+
+/*Data for the table `rms_transfer` */
+insert into `rms_domain`(`id`, `client`, `domain`) values (1,'PDWAN','www.pdxa.cn'), (2,'PDWAN','test.pdxa.cn'),(3,'PDWAN', 'test.pdxa.org');
+
 /*Table structure for table `rms_role_backenduser_rel` */
 
 DROP TABLE IF EXISTS `rms_role_backenduser_rel`;
